@@ -8,15 +8,10 @@ import Register from './pages/Register';
 import DashboardApp from './pages/AdminPage/DashboardApp';
 import Products from './pages/Products';
 import Blog from './pages/Blog';
-import User from './pages/User';
+import Order from './pages/Order';
 import NotFound from './pages/Page404';
 
 // ----------------------------------------------------------------------
-const user = {
-  isAdmin: false
-};
-
-const { isAdmin } = user;
 
 const userRoute = [
   {
@@ -31,11 +26,13 @@ const userRoute = [
     path: '/',
     element: <DashboardLayout />,
     children: [
-      { index: true, element: <Products /> },
+      { element: <Navigate to="/home" replace /> },
+      { path: 'home', element: <Products /> },
       { path: 'category', element: <Blog /> },
       { path: 'about', element: <Products /> },
       { path: 'cart', element: <Products /> },
-      { path: 'checkout', element: <Products /> },
+      { path: 'order', element: <Order /> },
+      { path: 'checkout', element: <Order /> },
       { path: 'blog', element: <Blog /> },
       { path: '404', element: <NotFound /> }
     ]
@@ -43,31 +40,6 @@ const userRoute = [
   { path: '*', element: <Navigate to="/404" replace /> }
 ];
 
-const adminRoute = [
-  {
-    path: '/dashboard',
-    element: <DashboardLayout />,
-    children: [
-      { element: <Navigate to="/dashboard/app" replace /> },
-      { path: 'app', element: <DashboardApp /> },
-      { path: 'user', element: <User /> },
-      { path: 'products', element: <Products /> },
-      { path: 'blog', element: <Blog /> }
-    ]
-  },
-  {
-    path: '/',
-    element: <LogoOnlyLayout />,
-    children: [
-      { path: 'login', element: <Login /> },
-      { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/dashboard" /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  },
-  { path: '*', element: <Navigate to="/404" replace /> }
-];
-
 export default function Router() {
-  return useRoutes(isAdmin ? adminRoute : userRoute);
+  return useRoutes(userRoute);
 }
