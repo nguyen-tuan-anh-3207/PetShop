@@ -28,6 +28,7 @@ const userRoute = [
     children: [
       { element: <Navigate to="/home" replace /> },
       { path: 'home', element: <Products /> },
+      { path: 'product/:id', element: <Products /> },
       { path: 'category', element: <Blog /> },
       { path: 'about', element: <Products /> },
       { path: 'cart', element: <Products /> },
