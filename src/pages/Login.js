@@ -44,7 +44,7 @@ export default function Login() {
     <RootStyle title="Login | Minimal-UI">
       <AuthLayout>
         Don’t have an account? &nbsp;
-        <Link underline="none" variant="subtitle2" component={RouterLink} to="/register">
+        <Link underline="none" variant="subtitle2" component={RouterLink} to="/auth/register">
           Get started
         </Link>
       </AuthLayout>

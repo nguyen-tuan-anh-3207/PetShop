@@ -1,11 +1,11 @@
-import { Icon } from '@iconify/react';
-import pieChart2Fill from '@iconify/icons-eva/pie-chart-2-fill';
+import fileTextFill from '@iconify/icons-eva/file-text-fill';
+import homeFill from '@iconify/icons-eva/home-fill';
+import layersFill from '@iconify/icons-eva/layers-fill';
+import lockFill from '@iconify/icons-eva/lock-fill';
 import peopleFill from '@iconify/icons-eva/people-fill';
 import shoppingBagFill from '@iconify/icons-eva/shopping-bag-fill';
-import fileTextFill from '@iconify/icons-eva/file-text-fill';
-import lockFill from '@iconify/icons-eva/lock-fill';
-import personAddFill from '@iconify/icons-eva/person-add-fill';
-import alertTriangleFill from '@iconify/icons-eva/alert-triangle-fill';
+import shoppingCartFill from '@iconify/icons-eva/shopping-cart-fill';
+import { Icon } from '@iconify/react';
 
 // ----------------------------------------------------------------------
 
@@ -13,39 +13,39 @@ const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
   {
-    title: 'dashboard',
-    path: '/dashboard/app',
-    icon: getIcon(pieChart2Fill)
+    title: 'Home',
+    path: '/',
+    icon: getIcon(homeFill)
   },
   {
-    title: 'user',
-    path: '/dashboard/user',
-    icon: getIcon(peopleFill)
-  },
-  {
-    title: 'product',
-    path: '/dashboard/products',
-    icon: getIcon(shoppingBagFill)
+    title: 'category',
+    path: '/category',
+    icon: getIcon(layersFill)
   },
   {
     title: 'blog',
-    path: '/dashboard/blog',
+    path: '/blog',
     icon: getIcon(fileTextFill)
   },
   {
+    title: 'About us',
+    path: '/about',
+    icon: getIcon(peopleFill)
+  },
+  {
+    title: 'Order',
+    path: '/order',
+    icon: getIcon(shoppingBagFill)
+  },
+  {
+    title: 'cart',
+    path: '/cart',
+    icon: getIcon(shoppingCartFill)
+  },
+  {
     title: 'login',
-    path: '/login',
+    path: '/auth/login',
     icon: getIcon(lockFill)
-  },
-  {
-    title: 'register',
-    path: '/register',
-    icon: getIcon(personAddFill)
-  },
-  {
-    title: 'Not found',
-    path: '/404',
-    icon: getIcon(alertTriangleFill)
   }
 ];
 

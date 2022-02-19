@@ -13,32 +13,31 @@ import NotFound from './pages/Page404';
 
 // ----------------------------------------------------------------------
 const user = {
-  isAdmin: true
+  isAdmin: false
 };
 
 const { isAdmin } = user;
 
 const userRoute = [
   {
-    path: '/dashboard',
-    element: <DashboardLayout />,
+    path: '/auth',
+    element: <LogoOnlyLayout />,
     children: [
-      { element: <Navigate to="/dashboard/app" replace /> },
-      { path: 'app', element: <DashboardApp /> },
-      { path: 'user', element: <User /> },
-      { path: 'products', element: <Products /> },
-      { path: 'blog', element: <Blog /> }
+      { path: 'login', element: <Login /> },
+      { path: 'register', element: <Register /> }
     ]
   },
   {
     path: '/',
-    element: <LogoOnlyLayout />,
+    element: <DashboardLayout />,
     children: [
-      { path: 'login', element: <Login /> },
-      { path: 'register', element: <Register /> },
-      { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/dashboard" /> },
-      { path: '*', element: <Navigate to="/404" /> }
+      { index: true, element: <Products /> },
+      { path: 'category', element: <Blog /> },
+      { path: 'about', element: <Products /> },
+      { path: 'cart', element: <Products /> },
+      { path: 'checkout', element: <Products /> },
+      { path: 'blog', element: <Blog /> },
+      { path: '404', element: <NotFound /> }
     ]
   },
   { path: '*', element: <Navigate to="/404" replace /> }
@@ -61,7 +60,6 @@ const adminRoute = [
     element: <LogoOnlyLayout />,
     children: [
       { path: 'login', element: <Login /> },
-      { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
       { path: '/', element: <Navigate to="/dashboard" /> },
       { path: '*', element: <Navigate to="/404" /> }

@@ -102,7 +102,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
           <Box sx={{ textAlign: 'center' }}>
             <Typography gutterBottom variant="h6">
-              Are You Admin?
+              Don’t have an account?
             </Typography>
           </Box>
 
@@ -112,7 +112,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             target="_blank"
             variant="contained"
           >
-            Login By Admin Now
+            Get started
           </Button>
         </Stack>
       </Box>
