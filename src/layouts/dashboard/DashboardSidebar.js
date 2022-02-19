@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
@@ -12,6 +12,7 @@ import { MHidden } from '../../components/@material-extend';
 //
 import sidebarConfig from './SidebarConfig';
 import account from '../../_mocks_/account';
+import { useGetAuth } from '../../reducers/user/hook';
 
 // ----------------------------------------------------------------------
 
@@ -41,6 +42,10 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { token, user } = useGetAuth();
+
+  const sidebarMenu = sidebarConfig.filter((sidebar) => sidebar.isAuth !== !token);
 
   useEffect(() => {
     if (isOpenSidebar) {
@@ -48,6 +53,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
+  const handleClick = () => {
+    navigate('/auth/register', { replace: true });
+  };
 
   const renderContent = (
     <Scrollbar
@@ -62,60 +71,59 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </Box>
       </Box>
 
-      <Box sx={{ mb: 5, mx: 2.5 }}>
-        <Link underline="none" component={RouterLink} to="#">
-          <AccountStyle>
-            <Avatar src={account.photoURL} alt="photoURL" />
-            <Box sx={{ ml: 2 }}>
-              <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {account.displayName}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {account.role}
-              </Typography>
-            </Box>
-          </AccountStyle>
-        </Link>
-      </Box>
+      {token ? (
+        <Box sx={{ mb: 5, mx: 2.5 }}>
+          <Link underline="none" component={RouterLink} to="#">
+            <AccountStyle>
+              <Avatar src={account.photoURL} alt="photoURL" />
+              <Box sx={{ ml: 2 }}>
+                <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+                  {user?.username}
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  {user?.email}
+                </Typography>
+              </Box>
+            </AccountStyle>
+          </Link>
+        </Box>
+      ) : null}
 
-      <NavSection navConfig={sidebarConfig} />
+      <NavSection navConfig={sidebarMenu} />
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-        <Stack
-          alignItems="center"
-          spacing={3}
-          sx={{
-            p: 2.5,
-            pt: 5,
-            borderRadius: 2,
-            position: 'relative',
-            bgcolor: 'grey.200'
-          }}
-        >
-          <Box
-            component="img"
-            src="/static/illustrations/illustration_avatar.png"
-            sx={{ width: 100, position: 'absolute', top: -50 }}
-          />
-
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography gutterBottom variant="h6">
-              Don’t have an account?
-            </Typography>
-          </Box>
-
-          <Button
-            fullWidth
-            href="https://material-ui.com/store/items/minimal-dashboard/"
-            target="_blank"
-            variant="contained"
+      {!token ? (
+        <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
+          <Stack
+            alignItems="center"
+            spacing={3}
+            sx={{
+              p: 2.5,
+              pt: 5,
+              borderRadius: 2,
+              position: 'relative',
+              bgcolor: 'grey.200'
+            }}
           >
-            Get started
-          </Button>
-        </Stack>
-      </Box>
+            <Box
+              component="img"
+              src="/static/illustrations/illustration_avatar.png"
+              sx={{ width: 100, position: 'absolute', top: -50 }}
+            />
+
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography gutterBottom variant="h6">
+                Don’t have an account?
+              </Typography>
+            </Box>
+
+            <Button fullWidth onClick={handleClick} variant="contained">
+              Get started
+            </Button>
+          </Stack>
+        </Box>
+      ) : null}
     </Scrollbar>
   );
 

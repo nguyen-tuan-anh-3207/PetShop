@@ -25,7 +25,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [onLogin] = useLogin();
-  const { token } = useGetAuth();
+  const { token, isLoading } = useGetAuth();
 
   const LoginSchema = Yup.object().shape({
     // email: Yup.string().email('Email must be a valid email address').required('Email is required'),
@@ -102,13 +102,7 @@ export default function LoginForm() {
           </Link>
         </Stack>
 
-        <LoadingButton
-          fullWidth
-          size="large"
-          type="submit"
-          variant="contained"
-          loading={isSubmitting}
-        >
+        <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isLoading}>
           Login
         </LoadingButton>
       </Form>

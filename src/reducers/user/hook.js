@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { LOGIN_SUCCESS, REGISTER_SUCCESS } from '../../constants/message';
-import { fetchLogin, fetchRegister } from './api';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_SUCCESS } from '../../constants/message';
+import { fetchLogin, fetchRegister, logout } from './api';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ export const useLogin = () => {
     const resultAction = await dispatch(fetchLogin(data));
     if (fetchLogin.fulfilled.match(resultAction)) {
       toast.success(LOGIN_SUCCESS);
+      console.log('run');
     } else {
       toast.error(resultAction.payload?.data?.message);
     }
@@ -29,6 +31,18 @@ export const useRegister = () => {
     }
   };
   return [onFetch];
+};
+
+export const useLogout = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onLogout = () => {
+    dispatch(logout());
+    toast.success(LOGOUT_SUCCESS);
+
+    navigate('/home');
+  };
+  return [onLogout];
 };
 
 // get state

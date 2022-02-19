@@ -17,7 +17,7 @@ export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [onRegister] = useRegister();
-  const { token } = useGetAuth();
+  const { token, isLoading } = useGetAuth();
 
   const RegisterSchema = Yup.object().shape({
     username: Yup.string()
@@ -99,7 +99,7 @@ export default function RegisterForm() {
             size="large"
             type="submit"
             variant="contained"
-            loading={isSubmitting}
+            loading={isLoading}
           >
             Register
           </LoadingButton>

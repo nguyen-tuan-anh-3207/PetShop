@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { showError } from '../../utils/error';
 import userApi from '../../api/userApi';
 
@@ -39,7 +39,6 @@ const userSlice = createSlice({
     logout: (state) => {
       state.token = null;
       state.user = null;
-      state.isVerify = false;
       localStorage.removeItem('accessToken');
     }
   },

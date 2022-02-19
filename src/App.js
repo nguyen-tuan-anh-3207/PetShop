@@ -7,6 +7,7 @@ import GlobalStyles from './theme/globalStyles';
 // components
 import ScrollToTop from './components/ScrollToTop';
 import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
+import Notification from './components/Notification';
 
 // ----------------------------------------------------------------------
 
@@ -17,6 +18,7 @@ export default function App() {
         <ScrollToTop />
         <GlobalStyles />
         <BaseOptionChartStyle />
+        <Notification />
         <Router />
       </ThemeConfig>
     </Suspense>
