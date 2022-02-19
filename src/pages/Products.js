@@ -1,8 +1,9 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 // material
-import { Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 // components
+import BannerSlide from '../components/BannerSlide';
 import Page from '../components/Page';
 import {
   ProductSort,
@@ -49,6 +50,9 @@ export default function EcommerceShop() {
   return (
     <Page title="Home: Products | Minimal-UI">
       <Container>
+        <Box>
+          <BannerSlide />
+        </Box>
         <Typography variant="h4" sx={{ mb: 5 }}>
           Products
         </Typography>

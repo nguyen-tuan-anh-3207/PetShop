@@ -36,15 +36,15 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@iconify/icons-ant-design": "^1.1.0",
     "@iconify/icons-eva": "^1.1.0",
     "@iconify/icons-ic": "^1.1.10",
     "@iconify/react": "^3.0.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.47",
-    "@mui/material": "^5.0.0",
+    "@mui/material": "^5.4.2",
     "@mui/utils": "^5.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "apexcharts": "^3.28.3",
@@ -81,6 +81,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "react-material-ui-carousel": "^3.2.0"
   }
 }
