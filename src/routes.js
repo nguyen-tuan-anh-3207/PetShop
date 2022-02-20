@@ -9,6 +9,8 @@ import Products from './pages/Products';
 import Blog from './pages/Blog';
 import Order from './pages/Order';
 import NotFound from './pages/Page404';
+import Category from './pages/Category';
+import Cart from './pages/Cart';
 
 // ----------------------------------------------------------------------
 
@@ -28,9 +30,9 @@ const userRoute = [
       { element: <Navigate to="/home" replace /> },
       { path: 'home', element: <Products /> },
       { path: 'product/:id', element: <Products /> },
-      { path: 'category', element: <Blog /> },
+      { path: 'category', element: <Category /> },
       { path: 'about', element: <Products /> },
-      { path: 'cart', element: <Products /> },
+      { path: 'cart', element: <Cart /> },
       { path: 'order', element: <Order /> },
       { path: 'checkout', element: <Order /> },
       { path: 'blog', element: <Blog /> },
