@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Icon } from '@iconify/react';
+
 import { Box, Card, Link, Typography, Stack, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
 //
 import Label from '../../Label';
+
 import ColorPreview from '../../ColorPreview';
+import { useCart } from '../../../reducers/cart/hook';
 
 // ----------------------------------------------------------------------
 
@@ -28,6 +31,15 @@ ShopProductCard.propTypes = {
 
 export default function ShopProductCard({ product }) {
   const { name, cover, price, colors, status, priceSale } = product;
+
+  const [onAddToCart] = useCart();
+
+  const handleClick = () => {
+    onAddToCart({
+      ...product,
+      quantity: 1
+    });
+  };
 
   return (
     <Card>
@@ -59,7 +71,7 @@ export default function ShopProductCard({ product }) {
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <IconButton>
-            <Icon icon="eva:shopping-cart-outline" />
+            <Icon icon="eva:shopping-cart-outline" onClick={handleClick} />
           </IconButton>
           {/* <ColorPreview colors={colors} /> */}
           <Typography variant="subtitle1">

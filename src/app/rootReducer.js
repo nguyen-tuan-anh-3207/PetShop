@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
 import userReducer from '../reducers/user/api';
+import cartReducer from '../reducers/cart/api';
 
 const history = createBrowserHistory();
 
@@ -15,6 +16,6 @@ const userPersistConfig = {
 
 export const rootReducer = {
   user: persistReducer(userPersistConfig, userReducer),
-
+  cart: cartReducer,
   router: connectRouter(history)
 };

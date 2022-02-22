@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import shoppingCartFill from '@iconify/icons-eva/shopping-cart-fill';
 // material
 import { styled } from '@mui/material/styles';
 import { Badge } from '@mui/material';
+import { useGetQuantityCart } from '../../../reducers/cart/hook';
 
 // ----------------------------------------------------------------------
 
@@ -30,9 +32,18 @@ const RootStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function CartWidget() {
+  const navigate = useNavigate();
+  const totalQuantityCart = useGetQuantityCart();
+
   return (
     <RootStyle>
-      <Badge showZero badgeContent={0} color="error" max={99}>
+      <Badge
+        showZero
+        badgeContent={totalQuantityCart}
+        color="error"
+        max={99}
+        onClick={() => navigate('/cart')}
+      >
         <Icon icon={shoppingCartFill} width={24} height={24} />
       </Badge>
     </RootStyle>
