@@ -14,8 +14,14 @@ const userPersistConfig = {
   whitelist: ['token']
 };
 
+const cartPersistConfig = {
+  key: 'cart',
+  storage,
+  whitelist: ['cart']
+};
+
 export const rootReducer = {
   user: persistReducer(userPersistConfig, userReducer),
-  cart: cartReducer,
+  cart: persistReducer(cartPersistConfig, cartReducer),
   router: connectRouter(history)
 };
