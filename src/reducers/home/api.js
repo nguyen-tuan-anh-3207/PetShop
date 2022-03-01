@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { showError } from '../../utils/error';
-import categoryApi from '../../api/categoryApi';
+import homeApi from '../../api/homeApi';
 
 const initialState = {
-  categories: null,
+  products: null,
   error: null,
   isLoading: false
 };
 
-export const fetchCategories = createAsyncThunk(
-  'category/fetchCategories',
+export const fetchProducts = createAsyncThunk(
+  'home/fetchProduct',
   async (data, { rejectWithValue }) => {
     try {
-      const { data: response } = await categoryApi.getCategories();
-      return response?.result?.categories;
+      const { data: response } = await homeApi.getProducts();
+      return response?.result?.products;
     } catch (err) {
       showError(err);
       return rejectWithValue(err.response);
@@ -21,18 +21,18 @@ export const fetchCategories = createAsyncThunk(
   }
 );
 
-const categorySlice = createSlice({
-  name: 'category',
+const homeSlice = createSlice({
+  name: 'home',
   initialState,
   extraReducers: (builder) => {
     builder
       // get products
-      .addCase(fetchCategories.fulfilled, (state, action) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.categories = action.payload;
+        state.products = action.payload;
       });
   }
 });
 
-const { reducer } = categorySlice;
+const { reducer } = homeSlice;
 export default reducer;

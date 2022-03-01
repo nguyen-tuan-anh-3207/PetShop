@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { fetchCategories } from './api';
+import { fetchProducts } from './api';
 
-export const useGetCategories = () => {
+export const useGetProducts = () => {
   const dispatch = useDispatch();
 
-  const { categories } = useSelector((state) => state.category);
+  const { products } = useSelector((state) => state.home);
 
   const onFetch = async () => {
-    const resultAction = await dispatch(fetchCategories());
+    const resultAction = await dispatch(fetchProducts());
 
-    if (!fetchCategories.fulfilled.match(resultAction)) {
+    if (!fetchProducts.fulfilled.match(resultAction)) {
       toast.error(resultAction.payload?.data?.message);
     }
   };
@@ -20,5 +20,5 @@ export const useGetCategories = () => {
     onFetch();
   }, []);
 
-  return [categories];
+  return [products];
 };

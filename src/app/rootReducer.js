@@ -5,6 +5,8 @@ import { persistReducer } from 'redux-persist';
 
 import userReducer from '../reducers/user/api';
 import cartReducer from '../reducers/cart/api';
+import homeReducer from '../reducers/home/api';
+import categoryReducer from '../reducers/category/api';
 
 const history = createBrowserHistory();
 
@@ -23,5 +25,7 @@ const cartPersistConfig = {
 export const rootReducer = {
   user: persistReducer(userPersistConfig, userReducer),
   cart: persistReducer(cartPersistConfig, cartReducer),
+  home: homeReducer,
+  category: categoryReducer,
   router: connectRouter(history)
 };

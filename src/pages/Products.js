@@ -13,6 +13,7 @@ import {
 } from '../components/_dashboard/products';
 //
 import PRODUCTS from '../_mocks_/products';
+import { useGetProducts } from '../reducers/home/hook';
 
 // ----------------------------------------------------------------------
 
@@ -46,6 +47,10 @@ export default function EcommerceShop() {
     handleSubmit();
     resetForm();
   };
+
+  const [products] = useGetProducts();
+
+  console.log('product..', products);
 
   return (
     <Page title="Home: Products | Minimal-UI">

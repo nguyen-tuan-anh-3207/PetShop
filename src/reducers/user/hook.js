@@ -10,7 +10,6 @@ export const useLogin = () => {
     const resultAction = await dispatch(fetchLogin(data));
     if (fetchLogin.fulfilled.match(resultAction)) {
       toast.success(LOGIN_SUCCESS);
-      console.log('run');
     } else {
       toast.error(resultAction.payload?.data?.message);
     }

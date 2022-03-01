@@ -6,10 +6,14 @@ import Page from '../components/Page';
 //
 import CategoryCard from '../components/_dashboard/category';
 import CATEGORIES from '../_mocks_/category';
+import { useGetCategories } from '../reducers/category/hook';
 
 // ----------------------------------------------------------------------
 
 export default function Category() {
+  const [categories] = useGetCategories();
+
+  console.log('categories..', categories);
   return (
     <Page title="Home: Category | Minimal-UI">
       <Container>
