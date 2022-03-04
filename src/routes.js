@@ -13,6 +13,7 @@ import Category from './pages/Category';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import { useGetAuth } from './reducers/user/hook';
+import About from './pages/About';
 
 // ----------------------------------------------------------------------
 
@@ -36,7 +37,7 @@ export default function Router() {
         { path: 'home', element: <Products /> },
         { path: 'product/:id', element: <ProductDetail /> },
         { path: 'category', element: <Category /> },
-        { path: 'about', element: <Products /> },
+        { path: 'about', element: <About /> },
         { path: 'cart', element: <Cart /> },
         { path: 'checkout', element: token ? <Checkout /> : <Navigate to="/auth/login" replace /> },
         { path: 'blog', element: <Blog /> },

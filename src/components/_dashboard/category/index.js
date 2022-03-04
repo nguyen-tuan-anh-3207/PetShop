@@ -60,8 +60,8 @@ CategoryCard.propTypes = {
   index: PropTypes.number
 };
 
-export default function CategoryCard({ post, index }) {
-  const { cover, title, name } = post;
+export default function CategoryCard({ category, index }) {
+  const { image, name, description } = category;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
@@ -89,7 +89,10 @@ export default function CategoryCard({ post, index }) {
             })
           }}
         >
-          <CoverImgStyle alt={title} src={cover} />
+          <CoverImgStyle
+            alt={description}
+            src={image?.url ?? '/static/mock-images/covers/cover_2.jpg'}
+          />
         </CardMediaStyle>
 
         <CardContent
@@ -116,7 +119,7 @@ export default function CategoryCard({ post, index }) {
             }}
           >
             <h3>{name ?? 'Category'}</h3>
-            {title}
+            {description}
           </TitleStyle>
         </CardContent>
       </Card>

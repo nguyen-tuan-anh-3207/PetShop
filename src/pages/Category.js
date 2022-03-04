@@ -1,11 +1,9 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Grid, Button, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 //
 import CategoryCard from '../components/_dashboard/category';
-import CATEGORIES from '../_mocks_/category';
 import { useGetCategories } from '../reducers/category/hook';
 
 // ----------------------------------------------------------------------
@@ -13,7 +11,6 @@ import { useGetCategories } from '../reducers/category/hook';
 export default function Category() {
   const [categories] = useGetCategories();
 
-  console.log('categories..', categories);
   return (
     <Page title="Home: Category | Minimal-UI">
       <Container>
@@ -24,8 +21,8 @@ export default function Category() {
         </Stack>
 
         <Grid container spacing={3}>
-          {CATEGORIES.map((post, index) => (
-            <CategoryCard key={post.id} post={post} index={index} />
+          {categories?.map((category, index) => (
+            <CategoryCard key={category._id} category={category} index={index} />
           ))}
         </Grid>
       </Container>
