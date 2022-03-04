@@ -23,12 +23,6 @@ const sidebarConfig = [
     icon: getIcon(layersFill)
   },
   {
-    title: 'Order',
-    path: '/order',
-    icon: getIcon(shoppingBagFill),
-    isAuth: true
-  },
-  {
     title: 'cart',
     path: '/cart',
     icon: getIcon(shoppingCartFill),

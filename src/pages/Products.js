@@ -50,8 +50,6 @@ export default function EcommerceShop() {
 
   const [products] = useGetProducts();
 
-  console.log('product..', products);
-
   return (
     <Page title="Home: Products | Minimal-UI">
       <Container>
@@ -81,7 +79,7 @@ export default function EcommerceShop() {
           </Stack>
         </Stack>
 
-        <ProductList products={PRODUCTS} />
+        <ProductList products={products} />
         <ProductCartWidget />
       </Container>
     </Page>

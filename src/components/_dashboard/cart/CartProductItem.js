@@ -33,11 +33,11 @@ export default function CartProductItem({ cart }) {
           <Grid xs={4} item>
             <Grid container>
               <Grid item xs={2}>
-                <Avatar variant="rounded" src={cart.cover} />
+                <Avatar variant="rounded" src={cart?.image?.url} />
               </Grid>
               <Grid item xs={10}>
                 <Typography>{cart.name}</Typography>
-                <Typography>Stock : 59</Typography>
+                <Typography>Stock : {cart.stock}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -48,10 +48,10 @@ export default function CartProductItem({ cart }) {
               spacing={2}
             >
               <Button disableElevation disabled={cart.quantity === 1}>
-                <RemoveIcon onClick={() => onDecreaseProduct(cart.id)} />
+                <RemoveIcon onClick={() => onDecreaseProduct(cart._id)} />
               </Button>
               <p>{cart.quantity}</p>
-              <Button disableElevation disabled={cart.quantity === 10}>
+              <Button disableElevation disabled={cart.quantity === cart.stock}>
                 <AddIcon onClick={() => onAddToCart(cart)} />
               </Button>
             </Stack>
@@ -61,7 +61,7 @@ export default function CartProductItem({ cart }) {
           </Grid>
           <Grid xs={2} item>
             <IconButton>
-              <DeleteIcon color="error" onClick={() => onRemoveToCart(cart.id)} />
+              <DeleteIcon color="error" onClick={() => onRemoveToCart(cart._id)} />
             </IconButton>
           </Grid>
         </Grid>

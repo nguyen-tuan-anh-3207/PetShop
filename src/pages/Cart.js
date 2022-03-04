@@ -1,6 +1,7 @@
 // material
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 // components
 import Page from '../components/Page';
 import CartProductHeader from '../components/_dashboard/cart/CartProductHeader';
@@ -8,6 +9,7 @@ import CartProductItem from '../components/_dashboard/cart/CartProductItem';
 import { useGetCart } from '../reducers/cart/hook';
 
 export default function Cart() {
+  const navigate = useNavigate();
   const [totalAmount, cart] = useGetCart();
   return (
     <Page title="Home: Cart | Minimal-UI">
@@ -31,7 +33,12 @@ export default function Cart() {
                 Total Amount : {totalAmount}
               </Grid>
               <Grid item xs={3}>
-                <Button variant="contained" color="success" fullWidth>
+                <Button
+                  variant="contained"
+                  color="success"
+                  fullWidth
+                  onClick={() => navigate('/checkout')}
+                >
                   Checkout
                 </Button>
               </Grid>

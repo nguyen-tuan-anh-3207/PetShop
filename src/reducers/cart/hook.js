@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fCurrency } from '../../utils/formatNumber';
+import { fNumber } from '../../utils/formatNumber';
 import { addToCart, removeCart, decreaseProductToCart } from './api';
 
 export const useCart = () => {
@@ -36,5 +36,5 @@ export const useGetCart = () => {
 
   const totalAmount = cart?.reduce((amount, item) => amount + item.quantity * item.price, 0);
 
-  return [fCurrency(totalAmount), cart];
+  return [totalAmount, cart];
 };

@@ -7,6 +7,7 @@ import userReducer from '../reducers/user/api';
 import cartReducer from '../reducers/cart/api';
 import homeReducer from '../reducers/home/api';
 import categoryReducer from '../reducers/category/api';
+import productReducer from '../reducers/product/api';
 
 const history = createBrowserHistory();
 
@@ -27,5 +28,6 @@ export const rootReducer = {
   cart: persistReducer(cartPersistConfig, cartReducer),
   home: homeReducer,
   category: categoryReducer,
+  product: productReducer,
   router: connectRouter(history)
 };

@@ -10,8 +10,10 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       if (action.payload) {
-        const idProductAction = action.payload.id;
-        const index = state.cart ? state.cart.map((item) => item?.id).indexOf(idProductAction) : -1;
+        const idProductAction = action.payload._id;
+        const index = state.cart
+          ? state.cart.map((item) => item?._id).indexOf(idProductAction)
+          : -1;
         if (index !== -1) {
           state.cart[index].quantity += 1;
         } else {
@@ -24,13 +26,13 @@ const cartSlice = createSlice({
       // const cartRemove = state.cart.find((cart) => cart.id === action.payload);
       // console.log('cartRemove..', cartRemove);
 
-      state.cart = state.cart.filter((cart) => cart.id !== action.payload);
+      state.cart = state.cart.filter((cart) => cart._id !== action.payload);
 
       localStorage.setItem('cart', JSON.stringify(state.cart));
     },
 
     decreaseProductToCart: (state, action) => {
-      const index = state.cart.findIndex((cart) => cart.id === action.payload);
+      const index = state.cart.findIndex((cart) => cart._id === action.payload);
       if (index >= 0) {
         state.cart[index].quantity -= 1;
       }
