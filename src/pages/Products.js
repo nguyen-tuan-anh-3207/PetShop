@@ -75,7 +75,6 @@ export default function EcommerceShop() {
               onOpenFilter={handleOpenFilter}
               onCloseFilter={handleCloseFilter}
             />
-            <ProductSort />
           </Stack>
         </Stack>
 
