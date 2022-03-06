@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ORDER_SUCCESS } from '../../constants/message';
 import { fetchCreateOrder } from './api';
+import { resetCart } from '../cart/api';
 
 export const useCreateOrder = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export const useCreateOrder = () => {
     const isSuccess = fetchCreateOrder.fulfilled.match(resultAction);
     if (isSuccess) {
       toast.success(ORDER_SUCCESS);
+      await dispatch(resetCart());
       navigate('/');
     } else {
       toast.error(resultAction.payload?.data?.message);

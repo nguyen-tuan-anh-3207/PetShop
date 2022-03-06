@@ -14,7 +14,6 @@ export const fetchCreateOrder = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const { data: response } = await orderApi.createOrder(data);
-      console.log('response...', response);
       return response;
     } catch (err) {
       showError(err);

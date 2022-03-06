@@ -1,11 +1,10 @@
-import { Icon } from '@iconify/react';
-import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Grid, Button, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../components/_dashboard/blog';
+import { useGetBlogs } from '../reducers/blog/hook';
 //
 import POSTS from '../_mocks_/blog';
 
@@ -20,6 +19,8 @@ const SORT_OPTIONS = [
 // ----------------------------------------------------------------------
 
 export default function Blog() {
+  const [data] = useGetBlogs();
+
   return (
     <Page title="Home: Blog | Minimal-UI">
       <Container>
@@ -35,8 +36,8 @@ export default function Blog() {
         </Stack>
 
         <Grid container spacing={3}>
-          {POSTS.map((post, index) => (
-            <BlogPostCard key={post.id} post={post} index={index} />
+          {data?.map((post, index) => (
+            <BlogPostCard key={post._id} post={post} index={index} />
           ))}
         </Grid>
       </Container>

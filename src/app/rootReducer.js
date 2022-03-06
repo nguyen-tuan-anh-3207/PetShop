@@ -8,6 +8,7 @@ import cartReducer from '../reducers/cart/api';
 import homeReducer from '../reducers/home/api';
 import categoryReducer from '../reducers/category/api';
 import productReducer from '../reducers/product/api';
+import blogReducer from '../reducers/blog/api';
 
 const history = createBrowserHistory();
 
@@ -29,5 +30,6 @@ export const rootReducer = {
   home: homeReducer,
   category: categoryReducer,
   product: productReducer,
+  blog: blogReducer,
   router: connectRouter(history)
 };
