@@ -16,7 +16,7 @@ export default function AboutPage() {
     <Grid container spacing={1}>
       <Grid item xs={2.4}>
         <About>
-          <Typography variant="h4">Contract us</Typography>
+          <Typography variant="h4">Liên hệ chúng tôi</Typography>
           <Typography variant="p">0123456789</Typography>
         </About>
       </Grid>

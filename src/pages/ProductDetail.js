@@ -15,7 +15,7 @@ export default function ProductDetail() {
       <Grid item xs={5}>
         <Typography variant="h3">{product?.name}</Typography>
         <Typography>{product?.description}</Typography>
-        <Typography>{`Quantity : ${product?.quantity}`}</Typography>
+        <Typography>{`Số lượng : ${product?.quantity}`}</Typography>
       </Grid>
     </Grid>
   );

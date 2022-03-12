@@ -13,17 +13,17 @@ const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
   {
-    title: 'Home',
+    title: 'Trang chủ',
     path: '/home',
     icon: getIcon(homeFill)
   },
   {
-    title: 'category',
+    title: 'Loại sản phẩm',
     path: '/category',
     icon: getIcon(layersFill)
   },
   {
-    title: 'cart',
+    title: 'Giỏ hàng',
     path: '/cart',
     icon: getIcon(shoppingCartFill),
     isAuth: true
@@ -34,13 +34,13 @@ const sidebarConfig = [
     icon: getIcon(fileTextFill)
   },
   {
-    title: 'About us',
+    title: 'Về chúng tôi',
     path: '/about',
     icon: getIcon(peopleFill)
   },
 
   {
-    title: 'login',
+    title: 'Đăng nhập',
     path: '/auth/login',
     icon: getIcon(lockFill),
     isAuth: false

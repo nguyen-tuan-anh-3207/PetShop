@@ -114,12 +114,12 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
             <Box sx={{ textAlign: 'center' }}>
               <Typography gutterBottom variant="h6">
-                Don’t have an account?
+                Bạn chưa có tài khoản?
               </Typography>
             </Box>
 
             <Button fullWidth onClick={handleClick} variant="contained">
-              Get started
+              Đăng kí ngay
             </Button>
           </Stack>
         </Box>

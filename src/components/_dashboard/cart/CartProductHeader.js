@@ -5,16 +5,16 @@ export default function CartProductHeader() {
     <>
       <Grid container spacing={3}>
         <Grid xs={4} item>
-          Product
+          Sản phẩm
         </Grid>
         <Grid xs={4} item>
-          Quantity
+          Số lượng
         </Grid>
         <Grid xs={2} item>
-          Sub Total
+          Tổng
         </Grid>
         <Grid xs={2} item>
-          Action
+          Hành động
         </Grid>
       </Grid>
       <Divider />

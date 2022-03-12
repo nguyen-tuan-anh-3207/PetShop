@@ -16,7 +16,7 @@ export default function Category() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Category
+            Loại sản phẩm
           </Typography>
         </Stack>
 

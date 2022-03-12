@@ -41,10 +41,10 @@ export default function Checkout() {
         <Grid container>
           <Grid container>
             <Grid item xs={6}>
-              <Typography variant="h3">Product name</Typography>
+              <Typography variant="h3">Tên sản phẩm</Typography>
             </Grid>
             <Grid item xs={6}>
-              <Typography variant="h3">Quantity</Typography>
+              <Typography variant="h3">Số lượng</Typography>
             </Grid>
           </Grid>
           {cart?.map((item) => (
@@ -63,7 +63,7 @@ export default function Checkout() {
         </Grid>
         <Grid container>
           <Grid item xs={9}>
-            Total Amount : {totalAmount}
+            Tổng tiền : {totalAmount}
           </Grid>
         </Grid>
       </Grid>
@@ -73,7 +73,7 @@ export default function Checkout() {
             <FormControl sx={{ m: 2 }}>
               <TextField
                 type="address"
-                label="Address"
+                label="Địa chỉ"
                 {...getFieldProps('address')}
                 error={Boolean(touched.address && errors.address)}
                 helperText={touched.address && errors.address}
@@ -84,7 +84,7 @@ export default function Checkout() {
                 fullWidth
                 multiline
                 type="phoneNumber"
-                label="Phone Number"
+                label="Số điện thoại"
                 {...getFieldProps('phoneNumber')}
                 error={Boolean(touched.phoneNumber && errors.phoneNumber)}
                 helperText={touched.phoneNumber && errors.phoneNumber}
@@ -98,7 +98,7 @@ export default function Checkout() {
                 variant="contained"
                 // loading={isSubmitting}
               >
-                Create Order
+                Tạo đơn hàng
               </LoadingButton>
             </FormControl>
           </Form>

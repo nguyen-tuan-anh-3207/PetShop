@@ -16,7 +16,7 @@ export default function Cart() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Cart
+            Giỏ hàng
           </Typography>
         </Stack>
 
@@ -30,7 +30,7 @@ export default function Cart() {
           <Grid item xs={12}>
             <Grid container>
               <Grid item xs={9}>
-                Total Amount : {totalAmount}
+                Tổng tiền : {totalAmount}
               </Grid>
               <Grid item xs={3}>
                 <Button
@@ -39,7 +39,7 @@ export default function Cart() {
                   fullWidth
                   onClick={() => navigate('/checkout')}
                 >
-                  Checkout
+                  Thanh toán
                 </Button>
               </Grid>
             </Grid>

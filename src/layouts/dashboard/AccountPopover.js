@@ -17,17 +17,17 @@ import { useGetAuth, useLogout } from '../../reducers/user/hook';
 
 const MENU_OPTIONS = [
   {
-    label: 'Home',
+    label: 'Trang chủ',
     icon: homeFill,
     linkTo: '/'
   },
   {
-    label: 'Profile',
+    label: 'Hồ sơ',
     icon: personFill,
     linkTo: '#'
   },
   {
-    label: 'Settings',
+    label: 'Cài đặt',
     icon: settings2Fill,
     linkTo: '#'
   }
@@ -83,10 +83,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            {user.username}
+            {user?.username}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user.email}
+            {user?.email}
           </Typography>
         </Box>
 
@@ -116,7 +116,7 @@ export default function AccountPopover() {
 
         <Box sx={{ p: 2, pt: 1.5 }}>
           <Button fullWidth color="inherit" variant="outlined" onClick={onLogout}>
-            Logout
+            Đăng xuất
           </Button>
         </Box>
       </MenuPopover>

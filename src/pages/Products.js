@@ -57,7 +57,7 @@ export default function EcommerceShop() {
           <BannerSlide />
         </Box>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
+          Sản phẩm
         </Typography>
 
         <Stack
