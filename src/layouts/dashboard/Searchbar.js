@@ -12,6 +12,7 @@ import {
   ClickAwayListener,
   IconButton
 } from '@mui/material';
+import { useUpdateSearch } from '../../hook';
 
 // ----------------------------------------------------------------------
 
@@ -43,11 +44,16 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
 export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
 
+  const [value, setValue] = useState('');
+
+  const { handleSearchClick } = useUpdateSearch();
+
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
 
   const handleClose = () => {
+    handleSearchClick('keyword', value);
     setOpen(false);
   };
 
@@ -65,6 +71,8 @@ export default function Searchbar() {
             <Input
               autoFocus
               fullWidth
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
               disableUnderline
               placeholder="Search…"
               startAdornment={

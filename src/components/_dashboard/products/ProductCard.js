@@ -60,7 +60,7 @@ export default function ShopProductCard({ product }) {
             <Icon icon="eva:shopping-cart-outline" onClick={handleClick} />
           </IconButton>
           {/* <ColorPreview colors={colors} /> */}
-          <Typography variant="subtitle1">{fCurrency(price)}</Typography>
+          <Typography variant="subtitle1">{price}</Typography>
         </Stack>
       </Stack>
     </Card>

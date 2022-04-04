@@ -2,7 +2,9 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 // material
 import { Box, Container, Stack, Typography } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 // components
+import { useSearchParams } from '../hook';
 import BannerSlide from '../components/BannerSlide';
 import Page from '../components/Page';
 import {
@@ -11,14 +13,17 @@ import {
   ProductCartWidget,
   ProductFilterSidebar
 } from '../components/_dashboard/products';
-//
-import PRODUCTS from '../_mocks_/products';
+
 import { useGetProducts } from '../reducers/home/hook';
 
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
   const [openFilter, setOpenFilter] = useState(false);
+
+  const { search } = useLocation();
+
+  const searchParams = useSearchParams(search);
 
   const formik = useFormik({
     initialValues: {
@@ -48,7 +53,7 @@ export default function EcommerceShop() {
     resetForm();
   };
 
-  const [products] = useGetProducts();
+  const [products] = useGetProducts(searchParams);
 
   return (
     <Page title="Home: Products | Minimal-UI">

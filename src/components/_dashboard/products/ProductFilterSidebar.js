@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { Form, FormikProvider } from 'formik';
@@ -11,10 +12,7 @@ import {
   Stack,
   Button,
   Drawer,
-  Rating,
   Divider,
-  Checkbox,
-  FormGroup,
   IconButton,
   Typography,
   RadioGroup,
@@ -22,8 +20,8 @@ import {
 } from '@mui/material';
 //
 import Scrollbar from '../../Scrollbar';
-import ColorManyPicker from '../../ColorManyPicker';
 import { useGetCategories } from '../../../reducers/category/hook';
+import { useUpdateSearch } from '../../../hook';
 
 // ----------------------------------------------------------------------
 
@@ -37,19 +35,9 @@ export const FILTER_GENDER_OPTIONS = ['Men', 'Women', 'Kids'];
 export const FILTER_CATEGORY_OPTIONS = ['All', 'Shose', 'Apparel', 'Accessories'];
 export const FILTER_RATING_OPTIONS = ['up4Star', 'up3Star', 'up2Star', 'up1Star'];
 export const FILTER_PRICE_OPTIONS = [
-  { value: 'below', label: 'Below $25' },
-  { value: 'between', label: 'Between $25 - $75' },
-  { value: 'above', label: 'Above $75' }
-];
-export const FILTER_COLOR_OPTIONS = [
-  '#00AB55',
-  '#000000',
-  '#FFFFFF',
-  '#FFC0CB',
-  '#FF4842',
-  '#1890FF',
-  '#94D82D',
-  '#FFC107'
+  { value: 'below', label: 'Dưới 100000 Vnđ' },
+  { value: 'between', label: 'Trong khoảng 100000 - 500000 Vnđ' },
+  { value: 'above', label: 'Trên 500000 ' }
 ];
 
 // ----------------------------------------------------------------------
@@ -71,7 +59,12 @@ export default function ShopFilterSidebar({
 }) {
   const { values, getFieldProps, handleChange } = formik;
 
+  const { handleSearchClick } = useUpdateSearch();
   const [categories] = useGetCategories();
+
+  useEffect(() => {
+    handleSearchClick('categoryId', values.category);
+  }, [values.category]);
 
   return (
     <>
@@ -126,19 +119,6 @@ export default function ShopFilterSidebar({
                       />
                     ))}
                   </RadioGroup>
-                </div>
-
-                <div>
-                  <Typography variant="subtitle1" gutterBottom>
-                    Colour
-                  </Typography>
-                  <ColorManyPicker
-                    name="colors"
-                    colors={FILTER_COLOR_OPTIONS}
-                    onChange={handleChange}
-                    onChecked={(color) => values.colors.includes(color)}
-                    sx={{ maxWidth: 36 * 4 }}
-                  />
                 </div>
 
                 <div>

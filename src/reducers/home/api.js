@@ -10,9 +10,9 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk(
   'home/fetchProduct',
-  async (data, { rejectWithValue }) => {
+  async (searchParams, { rejectWithValue }) => {
     try {
-      const { data: response } = await homeApi.getProducts();
+      const { data: response } = await homeApi.getProducts(searchParams);
       return response?.result?.products;
     } catch (err) {
       showError(err);
