@@ -18,11 +18,6 @@ const sidebarConfig = [
     icon: getIcon(homeFill)
   },
   {
-    title: 'Loại sản phẩm',
-    path: '/category',
-    icon: getIcon(layersFill)
-  },
-  {
     title: 'Giỏ hàng',
     path: '/cart',
     icon: getIcon(shoppingCartFill),
