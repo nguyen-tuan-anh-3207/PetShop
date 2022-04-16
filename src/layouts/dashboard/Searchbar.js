@@ -74,7 +74,7 @@ export default function Searchbar() {
               value={value}
               onChange={(e) => setValue(e.target.value)}
               disableUnderline
-              placeholder="Search…"
+              placeholder="Tìm kiếm..."
               startAdornment={
                 <InputAdornment position="start">
                   <Box
@@ -87,7 +87,7 @@ export default function Searchbar() {
               sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
             />
             <Button variant="contained" onClick={handleClose}>
-              Search
+              Tìm
             </Button>
           </SearchbarStyle>
         </Slide>
