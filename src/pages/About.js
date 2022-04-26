@@ -14,28 +14,24 @@ const About = styled(Page)(({ theme }) => ({
 export default function AboutPage() {
   return (
     <Grid container spacing={1}>
-      <Grid item xs={2.4}>
+      <Grid item xs={3}>
         <About>
           <Typography variant="h4">Liên hệ chúng tôi</Typography>
           <Typography variant="p">0123456789</Typography>
         </About>
       </Grid>
-      <Grid item xs={2.4}>
-        <About>
-          <Typography variant="h4">Find ur nearest shop</Typography>
-        </About>
-      </Grid>
-      <Grid item xs={2.4}>
+
+      <Grid item xs={3}>
         <About>
           <Typography variant="h4">About us</Typography>
-          <Typography variant="p">Instagram: @tingoan_store</Typography>
+          <Typography variant="p">Instagram: @petshop_store</Typography>
           <br />
-          <Typography variant="p">Facebook: Tingoan Store</Typography>
+          <Typography variant="p">Facebook: Petshop Store</Typography>
           <br />
-          <Typography variant="p">Shopee: tingoan_store</Typography>
+          <Typography variant="p">Shopee: petshop_store</Typography>
         </About>
       </Grid>
-      <Grid item xs={2.4}>
+      <Grid item xs={3}>
         <About>
           <Typography variant="h4">Chính sách</Typography>
           <Typography variant="p">Chính sách đổi hàng</Typography>
@@ -45,7 +41,7 @@ export default function AboutPage() {
           <Typography variant="p">Chính sách bảo mật</Typography>
         </About>
       </Grid>
-      <Grid item xs={2.4}>
+      <Grid item xs={3}>
         <About>
           <Typography variant="h4">Our stores</Typography>
           <Typography variant="p">62 Nguyen Trai, Q1, TPHCM</Typography>
