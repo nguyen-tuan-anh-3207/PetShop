@@ -33,14 +33,16 @@ export default function Cart() {
                 Tổng tiền : {totalAmount}
               </Grid>
               <Grid item xs={3}>
-                <Button
-                  variant="contained"
-                  color="success"
-                  fullWidth
-                  onClick={() => navigate('/checkout')}
-                >
-                  Thanh toán
-                </Button>
+                {cart?.length > 0 && (
+                  <Button
+                    variant="contained"
+                    color="success"
+                    fullWidth
+                    onClick={() => navigate('/checkout')}
+                  >
+                    Thanh toán
+                  </Button>
+                )}
               </Grid>
             </Grid>
           </Grid>
