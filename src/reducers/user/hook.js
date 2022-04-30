@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_SUCCESS } from '../../constants/message';
-import { fetchLogin, fetchRegister, logout } from './api';
+import { fetchLogin, fetchRegister, fetchUpdateProfile, logout } from './api';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -42,6 +42,18 @@ export const useLogout = () => {
     navigate('/home');
   };
   return [onLogout];
+};
+
+export const useUpdateProfile = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onUpdateProfile = (data) => {
+    dispatch(fetchUpdateProfile(data));
+    toast.success('Cập nhật hồ sơ thành công');
+
+    navigate('/home');
+  };
+  return [onUpdateProfile];
 };
 
 // get state

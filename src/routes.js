@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import NotFound from './pages/Page404';
 import Category from './pages/Category';
 import Cart from './pages/Cart';
+import Profile from './pages/Profile';
 import Checkout from './pages/Checkout';
 import { useGetAuth } from './reducers/user/hook';
 import About from './pages/About';
@@ -37,6 +38,7 @@ export default function Router() {
         { path: 'home', element: <Products /> },
         { path: 'product/:id', element: <ProductDetail /> },
         { path: 'category', element: <Category /> },
+        { path: 'profile', element: <Profile /> },
         { path: 'about', element: <About /> },
         { path: 'cart', element: <Cart /> },
         { path: 'checkout', element: token ? <Checkout /> : <Navigate to="/auth/login" replace /> },

@@ -5,12 +5,6 @@ import { Icon } from '@iconify/react';
 
 import { Box, Card, Link, Typography, Stack, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// utils
-import { fCurrency } from '../../../utils/formatNumber';
-//
-import Label from '../../Label';
-
-import ColorPreview from '../../ColorPreview';
 import { useCart } from '../../../reducers/cart/hook';
 
 // ----------------------------------------------------------------------
@@ -30,7 +24,7 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, image, price, colors, _id } = product;
+  const { name, image, price, _id, quantity } = product;
 
   const [onAddToCart] = useCart();
 
@@ -56,10 +50,15 @@ export default function ShopProductCard({ product }) {
         </Link>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <IconButton>
-            <Icon icon="eva:shopping-cart-outline" onClick={handleClick} />
-          </IconButton>
-          {/* <ColorPreview colors={colors} /> */}
+          {quantity === 0 ? (
+            <Typography variant="subtitle2" noWrap>
+              Hết hàng
+            </Typography>
+          ) : (
+            <IconButton>
+              <Icon icon="eva:shopping-cart-outline" onClick={handleClick} />
+            </IconButton>
+          )}
           <Typography variant="subtitle1">{price}</Typography>
         </Stack>
       </Stack>

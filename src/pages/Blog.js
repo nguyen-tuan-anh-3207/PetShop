@@ -1,22 +1,11 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Grid, Button, Container, Stack, Typography } from '@mui/material';
+import { Grid, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../components/_dashboard/blog';
+import { BlogPostCard, BlogPostsSearch } from '../components/_dashboard/blog';
 import { useGetBlogs } from '../reducers/blog/hook';
 //
 import POSTS from '../_mocks_/blog';
-
-// ----------------------------------------------------------------------
-
-const SORT_OPTIONS = [
-  { value: 'latest', label: 'Latest' },
-  { value: 'popular', label: 'Popular' },
-  { value: 'oldest', label: 'Oldest' }
-];
-
-// ----------------------------------------------------------------------
 
 export default function Blog() {
   const [data] = useGetBlogs();
@@ -32,7 +21,6 @@ export default function Blog() {
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
           <BlogPostsSearch posts={POSTS} />
-          <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
 
         <Grid container spacing={3}>

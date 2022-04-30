@@ -19,6 +19,19 @@ export const fetchLogin = createAsyncThunk('user/login', async (data, { rejectWi
   }
 });
 
+export const fetchUpdateProfile = createAsyncThunk(
+  'user/update',
+  async (data, { rejectWithValue }) => {
+    try {
+      const { data: response } = await userApi.updateProfile(data);
+      return response;
+    } catch (err) {
+      showError(err);
+      return rejectWithValue(err.response);
+    }
+  }
+);
+
 export const fetchRegister = createAsyncThunk(
   'user/register',
   async (data, { rejectWithValue }) => {
@@ -58,6 +71,13 @@ const userSlice = createSlice({
         state.token = action.payload.accessToken;
         state.user = action.payload.user;
         localStorage.setItem('accessToken', action.payload.accessToken);
+      })
+      .addCase(fetchUpdateProfile.fulfilled, (state, action) => {
+        state.user = {
+          ...state.user,
+          phoneNumber: action.payload.profile.phoneNumber,
+          address: action.payload.profile.address
+        };
       });
   }
 });

@@ -22,8 +22,8 @@ export default function Checkout() {
 
   const formik = useFormik({
     initialValues: {
-      address: '',
-      phoneNumber: ''
+      address: user?.address ?? '',
+      phoneNumber: user?.phoneNumber ?? ''
     },
     validationSchema: CheckoutSchema,
     onSubmit: (values) => {
@@ -33,7 +33,7 @@ export default function Checkout() {
       });
     }
   });
-  const { errors, touched, handleSubmit, getFieldProps } = formik;
+  const { errors, touched, handleSubmit, getFieldProps, isSubmitting } = formik;
 
   return (
     <Grid container spacing={2}>
@@ -92,12 +92,7 @@ export default function Checkout() {
             </FormControl>
 
             <FormControl sx={{ m: 2 }}>
-              <LoadingButton
-                size="large"
-                type="submit"
-                variant="contained"
-                // loading={isSubmitting}
-              >
+              <LoadingButton size="large" type="submit" variant="contained" loading={isSubmitting}>
                 Tạo đơn hàng
               </LoadingButton>
             </FormControl>

@@ -90,7 +90,7 @@ export default function ShopFilterSidebar({
               <Stack spacing={3} sx={{ p: 3 }}>
                 <div>
                   <Typography variant="subtitle1" gutterBottom>
-                    Category
+                    Loại sản phầm
                   </Typography>
                   <RadioGroup {...getFieldProps('category')}>
                     {categories?.map((item) => (
@@ -116,7 +116,7 @@ export default function ShopFilterSidebar({
                 onClick={onResetFilter}
                 startIcon={<Icon icon={roundClearAll} />}
               >
-                Clear All
+                Xóa tất cả lựa chọn
               </Button>
             </Box>
           </Drawer>

@@ -11,6 +11,12 @@ const userApi = {
     const url = '/auth/register';
 
     return axiosClient.post(url, params);
+  },
+
+  updateProfile(params) {
+    const url = '/profiles';
+
+    return axiosClient.put(url, params);
   }
 };
 
