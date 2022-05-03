@@ -2,7 +2,7 @@
 import { Grid, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { BlogPostCard, BlogPostsSearch } from '../components/_dashboard/blog';
+import { BlogPostCard } from '../components/_dashboard/blog';
 import { useGetBlogs } from '../reducers/blog/hook';
 //
 import POSTS from '../_mocks_/blog';
@@ -17,10 +17,6 @@ export default function Blog() {
           <Typography variant="h4" gutterBottom>
             Blog
           </Typography>
-        </Stack>
-
-        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch posts={POSTS} />
         </Stack>
 
         <Grid container spacing={3}>

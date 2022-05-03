@@ -25,11 +25,6 @@ const MENU_OPTIONS = [
     label: 'Hồ sơ',
     icon: personFill,
     linkTo: '/profile'
-  },
-  {
-    label: 'Cài đặt',
-    icon: settings2Fill,
-    linkTo: '#'
   }
 ];
 

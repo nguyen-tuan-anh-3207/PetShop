@@ -57,7 +57,7 @@ export default function ShopFilterSidebar({
         endIcon={<Icon icon={roundFilterList} />}
         onClick={onOpenFilter}
       >
-        Filters&nbsp;
+        Lọc&nbsp;
       </Button>
 
       <FormikProvider value={formik}>
